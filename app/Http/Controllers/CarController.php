@@ -7,6 +7,7 @@ use App\Services\Verbox\ChatMessageInterface;
 use App\Models\Brand;
 use App\Models\Car;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CarController extends Controller
@@ -14,7 +15,10 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::orderBy('id', 'DESC');
-        if (config('app-cars.with-trashed')) {
+
+        // dd(Auth::user()->name);
+
+        if (Auth::user()->name === 'admin') {
             $cars->withTrashed();
         };
         $cars = $cars->with('brand', 'tags')->get();
