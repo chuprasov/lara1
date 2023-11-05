@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 class CarController extends Controller
 {
     public function index()
-    public function index()
     {
         $cars = Car::orderBy('id', 'DESC');
         if (config('app-cars.with-trashed')) {
