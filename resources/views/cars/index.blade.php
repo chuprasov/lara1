@@ -1,6 +1,6 @@
 <x-layout.main title="Main page">
     <h2>Cars</h2>
-    <a href="{{ route('cars.create') }}">Создать</a>
+    <a id="btn-create" href="{{ route('cars.create') }}">Создать</a>
     <hr>
     <table class="table table-striped">
         <thead>
@@ -33,7 +33,7 @@
                     <td> {{ $car->status->title() }} </td>
                     <td>
                         @if (!$car->trashed())
-                            <a href="{{ route('cars.show', [$car->id]) }}">Show</a>
+                            <a id="show-{{$car->id}}" href="{{ route('cars.show', [$car->id]) }}">Show</a>
                             <a href="{{ route('cars.edit', [$car->id]) }}">Edit</a>
                         @endif
                         <a href="{{ route('cars.before-destroy', [$car->id]) }}">Delete</a>

@@ -9,8 +9,8 @@
         <h2>Создана: {{ $brand->created_at }}</h2>
     </div>
     <br>
-    <a href="{{ route('brands.index') }}" class="btn btn-primary">Home</a>
-    <a href="{{ route('brands.edit', $brand->id) }}" class="btn btn-secondary">Edit</a>
-    <a href="{{ route('brands.before-destroy', $brand->id) }}" class="btn btn-danger">Delete</a>
+    <a id="btn-home" href="{{ route('brands.index') }}" class="btn btn-primary">Home</a>
+    <a id="btn-edit" href="{{ route('brands.edit', $brand->id) }}" class="btn btn-secondary">Edit</a>
+    <a id="btn-delete" href="{{ route('brands.before-destroy', $brand->id) }}" class="btn btn-danger">Delete</a>
     <br><br>
 </x-layout.main>

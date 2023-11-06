@@ -25,8 +25,8 @@
         <h2>Создана: {{ $car->created_at }}</h2>
     </div>
     <br>
-    <a href="{{ route('cars.index') }}" class="btn btn-primary">Home</a>
-    <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-secondary">Edit</a>
-    <a href="{{ route('cars.before-destroy', $car->id) }}" class="btn btn-danger">Delete</a>
+    <a id="btn-home" href="{{ route('cars.index') }}" class="btn btn-primary">Home</a>
+    <a id="btn-edit" href="{{ route('cars.edit', $car->id) }}" class="btn btn-secondary">Edit</a>
+    <a id="btn-delete" href="{{ route('cars.before-destroy', $car->id) }}" class="btn btn-danger">Delete</a>
     <br><br>
 </x-layout.main>

@@ -2,9 +2,9 @@
     <x-form-input type="text" name="title" label="Марка " />
 </div>
 <div class="mb-3">
-    <x-form-submit>Сохранить</x-form-submit>
+    <x-form-submit id="btn-save">Сохранить</x-form-submit>
 </div>
 
 <div class="mb-3">
-    <a href="{{route('brands.index')}}" class="btn btn-secondary">Отмена</a>
+    <a id="btn-cancel" href="{{route('brands.index')}}" class="btn btn-secondary">Отмена</a>
 </div>

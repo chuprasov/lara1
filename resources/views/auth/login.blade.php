@@ -30,7 +30,7 @@
                 </a>
             @endif
 
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" >
                 {{ __('Log in') }}
             </button>
 

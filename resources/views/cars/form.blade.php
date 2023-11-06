@@ -22,13 +22,10 @@
 @enderror
 
 <div class="mb-3">
-    <button class="btn btn-success">Сохранить</button>
-</div>
-<div class="mb-3">
-    <x-form-submit>Сохранить</x-form-submit>
+    <x-form-submit id="btn-save">Сохранить</x-form-submit>
 </div>
 
 <div class="mb-3">
-    <a href="{{route('cars.index')}}" class="btn btn-secondary">Отмена</a>
+    <a id="btn-cancel" href="{{route('cars.index')}}" class="btn btn-secondary">Отмена</a>
 </div>
 

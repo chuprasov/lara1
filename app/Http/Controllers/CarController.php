@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveCarRequest;
-use App\Services\Verbox\ChatMessageInterface;
 use App\Models\Brand;
 use App\Models\Car;
 use App\Models\Tag;
@@ -15,8 +14,6 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::orderBy('id', 'DESC');
-
-        // dd(Auth::user()->name);
 
         if (Auth::user()->name === 'admin') {
             $cars->withTrashed();

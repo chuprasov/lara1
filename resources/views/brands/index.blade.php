@@ -1,6 +1,6 @@
 <x-layout.main title="Main page">
     <h2>Brands</h2>
-    <a href="{{ route('brands.create') }}">Создать</a>
+    <a id="btn-create" href="{{ route('brands.create') }}">Создать</a>
     <hr>
     <table class="table table-striped">
         <thead>
