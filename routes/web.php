@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +22,14 @@ use Illuminate\Support\Facades\Auth;
 // dd(url());
 // dd(request()->all());
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::prefix(env('ROUTE_PREFIX'))->group(function () {
+
+    Route::get('/locale/{locale}', [LocaleController::class, 'setLocale'])->name('locale');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
     Route::middleware('guest')->group(function () {
         Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
         Route::post('login', [AuthenticatedSessionController::class, 'store']);

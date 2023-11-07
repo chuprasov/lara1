@@ -1,7 +1,6 @@
 <?php
 
-return
-[
+return [
     'cars'  => [
         'added' => 'Автомобиль :name добавлен',
         'updated' => 'Автомобиль :name изменен',

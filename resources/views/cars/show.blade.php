@@ -1,18 +1,18 @@
-<x-layout.main title="Автомобиль # {{ $car->id }}">
+<x-layout.main title="Car # {{ $car->id }}">
     <div>
         <h2>ID: {{ $car->id }}</h2>
     </div>
     <div>
-        <h2>Марка: {{ $car->brand->title }}</h2>
+        <h2>{{ __('Brand') }}: {{ $car->brand->title }}</h2>
     </div>
     <div>
-        <h2>Модель: {{ $car->model }}</h2>
+        <h2>{{ __('Model') }}: {{ $car->model }}</h2>
     </div>
     <div>
         <h2>VIN: {{ $car->vin }}</h2>
     </div>
     <div>
-        <h2>Трансмиссия: {{ config('app-cars.transmissions')[$car->transmission] }}</h2>
+        <h2>{{ __('Transmission') }}: {{ config('app-cars.transmissions')[$car->transmission] }}</h2>
     </div>
 
     <div>
@@ -22,11 +22,12 @@
     </div>
 
     <div>
-        <h2>Создана: {{ $car->created_at }}</h2>
+        <h2>{{ __('Created') }}: {{ $car->created_at }}</h2>
     </div>
     <br>
-    <a id="btn-home" href="{{ route('cars.index') }}" class="btn btn-primary">Home</a>
-    <a id="btn-edit" href="{{ route('cars.edit', $car->id) }}" class="btn btn-secondary">Edit</a>
-    <a id="btn-delete" href="{{ route('cars.before-destroy', $car->id) }}" class="btn btn-danger">Delete</a>
+    <a id="btn-home" href="{{ route('cars.index') }}" class="btn btn-primary">{{ __('Home') }}</a>
+    <a id="btn-edit" href="{{ route('cars.edit', $car->id) }}" class="btn btn-secondary">{{ __('Edit') }}</a>
+    <a id="btn-delete" href="{{ route('cars.before-destroy', $car->id) }}"
+        class="btn btn-danger">{{ __('Delete') }}</a>
     <br><br>
 </x-layout.main>

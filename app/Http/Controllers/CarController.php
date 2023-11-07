@@ -40,7 +40,7 @@ class CarController extends Controller
         });
 
         return redirect(route('cars.show', $car->id))->with('flash_message', __(
-            'notifications.cars.added',
+            'notification.cars.added',
             ['name' => $car->brand->title . ' ' . $car->model]
         ));
     }
@@ -68,7 +68,7 @@ class CarController extends Controller
         });
 
         return redirect(route('cars.show', $car->id))->with('flash_message', __(
-            'notifications.cars.updated',
+            'notification.cars.updated',
             ['name' => $car->brand->title . ' ' . $car->model]
         ));
     }
@@ -77,7 +77,7 @@ class CarController extends Controller
     {
         $car->delete();
         return redirect(route('cars.index'))->with('flash_message', __(
-            'notifications.cars.deleted',
+            'notification.cars.deleted',
             ['name' => $car->fullName()]
         ));
     }
@@ -88,7 +88,7 @@ class CarController extends Controller
         if ($car->trashed()) {
             Car::where('id', $id)->onlyTrashed()->forceDelete();
             return redirect(route('cars.index'))->with('flash_message', __(
-                'notifications.cars.force-deleted',
+                'notification.cars.force-deleted',
                 ['name' => $car->fullName()]
             ));
         }
@@ -100,7 +100,7 @@ class CarController extends Controller
         $car = Car::onlyTrashed()->findOrFail($id);
         $car->restore();
         return redirect(route('cars.index'))->with('flash_message', __(
-            'notifications.cars.restored',
+            'notification.cars.restored',
             ['name' => $car->fullName()]
         ));
     }

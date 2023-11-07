@@ -23,7 +23,7 @@ class BrandController extends Controller
     {
         $brand = Brand::create($request->validated());
         return redirect(route('brands.show', $brand->id))->with('flash_message', __(
-            'notifications.brands.added',
+            'notification.brands.added',
             ['name' => $brand->brand]
         ));
     }
@@ -44,7 +44,7 @@ class BrandController extends Controller
         $brand->save();
 
         return redirect(route('brands.show', $brand->id))->with('flash_message', __(
-            'notifications.brands.updated',
+            'notification.brands.updated',
             ['name' => $brand->title]
         ));
     }
@@ -53,7 +53,7 @@ class BrandController extends Controller
     {
         $brand->delete();
         return redirect(route('brands.index'))->with('flash_message', __(
-            'notifications.brands.deleted',
+            'notification.brands.deleted',
             ['name' => $brand->title]
         ));
     }

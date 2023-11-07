@@ -3,18 +3,19 @@
 @section('menu')
     @auth
         <li class="nav-item">
-            <a class="nav-link" id="cars-index" href="{{ route('cars.index') }}">Cars</a>
+            <a class="nav-link" id="cars-index" href="{{ route('cars.index') }}">{{ __('Cars') }} </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="brands-index" href="{{ route('brands.index') }}">Brands</a>
+            <a class="nav-link" id="brands-index" href="{{ route('brands.index') }}">{{ __('Brands') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="messages-index" href="{{ route('messages.index') }}">Messages</a>
+            <a class="nav-link" id="messages-index" href="{{ route('messages.index') }}">{{ __('Messages') }}</a>
         </li>
     @endauth
 @endsection
 
 @section('content')
+
     <body>
         <div class="site-content">
             <div class="container">

@@ -1,9 +1,17 @@
 <?php
 
 return [
+
     'transmissions'  => [
-        1 => 'Механическая',
-        2 => 'Автоматическая',
-        3 => 'Вариатор',
+        1 => 'Manual',
+        2 => 'Automatic',
+        3 => 'Variable',
+    ],
+
+    'locales'  => [
+        'en' => 'English',
+        'ru' => 'Русский',
+        'tr' => 'Türkçe',
     ]
+
 ];
