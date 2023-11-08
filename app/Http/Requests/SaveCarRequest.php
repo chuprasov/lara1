@@ -35,12 +35,12 @@ class SaveCarRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'brand_id' => 'Марка',
-            'model' => 'Модель',
-            'transmission' => 'Трансмиссия',
+            'brand_id' => __('Brand'),
+            'model' => __('Model'),
+            'transmission' => __('Transmission'),
             'vin' => 'VIN',
-            'tags' => 'Тэги',
-            'tags.*' => 'Тэг'
+            'tags' => __('Tags'),
+            'tags.*' => __('Tag')
         ];
     }
 

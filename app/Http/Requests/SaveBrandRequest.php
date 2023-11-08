@@ -30,7 +30,7 @@ class SaveBrandRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'title' => 'Название брэнда',
+            'title' => __('Brand'),
         ];
     }
 }
