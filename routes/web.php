@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 // dd(url());
 // dd(request()->all());
 
-// Route::prefix(env('ROUTE_PREFIX'))->group(function () {
+Route::prefix(env('ROUTE_PREFIX'))->group(function () {
 
     Route::get('/locale/{locale}', [LocaleController::class, 'setLocale'])->name('locale');
 
@@ -49,4 +49,4 @@ use Illuminate\Support\Facades\Auth;
 
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     });
-// });
+});
