@@ -22,7 +22,7 @@ class BrandController extends Controller
     public function store(SaveBrandRequest $request)
     {
         $brand = Brand::create($request->validated());
-        return redirect(route('brands.show', $brand->id))->with('flash_message', __(
+        return redirect(route('brands.index'))->with('flash_message', __(
             'notification.brands.added',
             ['name' => $brand->title]
         ));

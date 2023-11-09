@@ -39,7 +39,7 @@ class CarController extends Controller
             $car->tags()->sync($data->get('tags'));
         });
 
-        return redirect(route('cars.show', $car->id))->with('flash_message', __(
+        return redirect(route('cars.index'))->with('flash_message', __(
             'notification.cars.added',
             ['name' => $car->brand->title . ' ' . $car->model]
         ));
