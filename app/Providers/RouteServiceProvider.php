@@ -34,7 +34,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->prefix(env('ROUTE_PREFIX'))
+                
                 ->group(base_path('routes/web.php'));
         });
     }

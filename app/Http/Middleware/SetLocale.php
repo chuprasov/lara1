@@ -18,6 +18,8 @@ class SetLocale
         $locale = session('locale') ?? config('app.locale');
         app()->setlocale($locale);
 
+        $request->route()->prefix(env('ROUTE_PREFIX'));
+
         return $next($request);
     }
 }
