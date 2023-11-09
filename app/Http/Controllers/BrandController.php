@@ -24,7 +24,7 @@ class BrandController extends Controller
         $brand = Brand::create($request->validated());
         return redirect(route('brands.show', $brand->id))->with('flash_message', __(
             'notification.brands.added',
-            ['name' => $brand->brand]
+            ['name' => $brand->title]
         ));
     }
 
