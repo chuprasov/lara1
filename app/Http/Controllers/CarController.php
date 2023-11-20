@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -32,7 +33,7 @@ class CarController extends Controller
 
     public function store(SaveCarRequest $request)
     {
-        $data = collect($request->validated());
+        $data = $this->dataWithImage($request);
 
         DB::transaction(function () use ($data, &$car) {
             $car = Car::create($data->except('tags')->toArray());
@@ -59,7 +60,7 @@ class CarController extends Controller
 
     public function update(SaveCarRequest $request, Car $car)
     {
-        $data = collect($request->validated());
+        $data = $this->dataWithImage($request);
 
         DB::transaction(function () use ($data, $car) {
             $car->update($data->except('tags')->toArray());
@@ -104,4 +105,17 @@ class CarController extends Controller
             ['name' => $car->fullName()]
         ));
     }
+    private function dataWithImage(SaveCarRequest $request)
+    {
+        $path = '';
+
+        if ($request->file('imagefile')) {
+            $path = Storage::putFile('uploads', $request->file('imagefile'));
+        }
+
+        $data = collect($request->validated() + ['image' => $path]);
+
+        return $data;
+    }
+
 }

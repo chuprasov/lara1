@@ -26,7 +26,9 @@
             @error('tags.*')
                 <div class="alert alert-danger my-2">{{ $message }}</div>
             @enderror
-
+            <div class="mb-3">
+                <x-form-input type="file" name="imagefile" />
+            </div>
             <div class="mb-3">
                 <x-form-submit id="btn-save">{{ __('Save') }}</x-form-submit>
             </div>

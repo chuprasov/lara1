@@ -37,15 +37,8 @@
                 <br><br>
             </div>
             <div class="col-6">
-                <x-form method="post" action="{{ route('image.upload') }}" enctype="multipart/form-data">
-                    <input type="hidden" name="id" id="id" value="{{ $car->id }}">
-                    <x-form-input type="file" name="userfile" />
-                    <br>
-                    <x-form-submit>{{ __('Upload') }}</x-form-submit>
-                </x-form>
+                <img src="{{ asset('storage').'/'.(empty($car->image) ? 'img/car.png' : $car->image) }}" alt="Image not found" class="img-fluid" alt="Responsive image">
                 <p>{{ asset('storage') }}/{{ $car->image }}</p>
-                <img src="{{ asset('storage').'/'.$car->image }}" alt="" class="img-fluid" alt="Responsive image">
-                <img src="{{ $car->image }}" alt="">
             </div>
         </div>
     </div>
