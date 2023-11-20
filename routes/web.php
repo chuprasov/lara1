@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
@@ -48,5 +49,7 @@ Route::prefix(env('ROUTE_PREFIX'))->group(function () {
         Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+        Route::post('/image/upload', [ImageController::class, 'upload'])->name('image.upload');
     });
 });
