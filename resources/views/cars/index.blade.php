@@ -41,6 +41,10 @@
                             <a href="{{ route('cars.restore', [$car->id]) }}">{{ __('Restore') }}</a>
                         @endif
                     </td>
+                    <td>
+                        <img src="{{ asset('storage') . '/' . (empty($car->image) ? 'img/car.png' : $car->image) }}"
+                            alt="Image not found" class="rounded" alt="Responsive image" width="70">
+                    </td>
                 </tr>
             @endforeach
         </tbody>

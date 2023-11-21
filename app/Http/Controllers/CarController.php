@@ -107,13 +107,13 @@ class CarController extends Controller
     }
     private function dataWithImage(SaveCarRequest $request)
     {
-        $path = '';
+        $data = collect($request->validated());
 
         if ($request->file('imagefile')) {
             $path = Storage::putFile('uploads', $request->file('imagefile'));
+            $data['image'] = $path;
         }
 
-        $data = collect($request->validated() + ['image' => $path]);
 
         return $data;
     }

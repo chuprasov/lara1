@@ -37,8 +37,8 @@
                 <br><br>
             </div>
             <div class="col-6">
-                <img src="{{ asset('storage').'/'.(empty($car->image) ? 'img/car.png' : $car->image) }}" alt="Image not found" class="img-fluid" alt="Responsive image">
-                <p>{{ asset('storage') }}/{{ $car->image }}</p>
+                <img src="{{ asset('storage') . '/' . (empty($car->image) ? 'img/car.png' : $car->image) }}"
+                    alt="Image not found" class="rounded img-fluid" alt="Responsive image">
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
                 <x-form-input type="text" name="vin" label="VIN " />
             </div>
             <div class="mb-3">
-                <x-form-select label="{{ __('Transmission') }}:" name="transmission" :options="config('app-cars.transmissions')"
+                <x-form-select label="{{ __('Transmission') }}" name="transmission" :options="config('app-cars.transmissions')"
                     placeholder="{{ __('not selected') }}" />
             </div>
             <div class="mb-3">
@@ -27,8 +27,9 @@
                 <div class="alert alert-danger my-2">{{ $message }}</div>
             @enderror
             <div class="mb-3">
-                <x-form-input type="file" name="imagefile" />
+                <x-form-input type="file" name="imagefile" label="{{ __('Photo') }}" />
             </div>
+            <x-form-input type="hidden" name="image" />
             <div class="mb-3">
                 <x-form-submit id="btn-save">{{ __('Save') }}</x-form-submit>
             </div>

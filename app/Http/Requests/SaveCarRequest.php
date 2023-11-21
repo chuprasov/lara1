@@ -28,7 +28,8 @@ class SaveCarRequest extends FormRequest
             'transmission' => 'required|in:' . implode(',', array_keys(config('app-cars.transmissions'))),
             'vin' => 'required|min:3|max:17|unique:cars,vin,'. $currentId,
             'tags' => 'array',
-            'tags.*' => 'integer|exists:tags,id'
+            'tags.*' => 'integer|exists:tags,id',
+            'image' => 'string|nullable'
         ];
     }
 
