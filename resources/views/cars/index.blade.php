@@ -28,7 +28,7 @@
                             <div class="d-inline p-1 bg-info bg-opacity-25 rounded">{{ $tag->title }}</div>
                         @endforeach
                     </td>
-                    <td> {{ $car->created_at }} </td>
+                    <td> {{ $car->created_at->timezone('Europe/Istanbul') }} </td>
                     {{-- <td> {{ $car->status->title() }} </td> --}}
                     <td>
                         @if (!$car->trashed())
