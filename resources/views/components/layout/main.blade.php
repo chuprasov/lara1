@@ -8,9 +8,11 @@
         <li class="nav-item">
             <a class="nav-link" id="brands-index" href="{{ route('brands.index') }}">{{ __('Brands') }}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" id="messages-index" href="{{ route('messages.index') }}">{{ __('Messages') }}</a>
-        </li>
+        @if (!empty(config('verbox.x-token')))
+            <li class="nav-item">
+                <a class="nav-link" id="messages-index" href="{{ route('messages.index') }}">{{ __('Messages') }}</a>
+            </li>
+        @endif
     @endauth
 @endsection
 
