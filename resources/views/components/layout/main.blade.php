@@ -13,6 +13,9 @@
                 <a class="nav-link" id="messages-index" href="{{ route('messages.index') }}">{{ __('Messages') }}</a>
             </li>
         @endif
+        <li class="nav-item">
+            <a class="nav-link" id="logs" href="{{ route('logs') }}">{{ __('Logs') }}</a>
+        </li>
     @endauth
 @endsection
 

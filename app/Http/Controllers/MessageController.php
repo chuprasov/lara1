@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MsgIndexRequest;
 use App\Services\Verbox\ChatMessageInterface;
+use Illuminate\Log\Logger;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class MessageController extends Controller
 {
@@ -20,6 +22,8 @@ class MessageController extends Controller
         };
 
         $msgDateEnd = Carbon::create($msgDate)->add(1, 'day');
+
+        Log::info("Verbox message requested from $msgDate to $msgDateEnd");
 
         // dd(session('msg_date'));
 
