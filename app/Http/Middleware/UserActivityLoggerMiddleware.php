@@ -16,9 +16,9 @@ class UserActivityLoggerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user_id = $request->user()->id;
+        $user_id = $request->user()->id ?? 0;
         $action = $request->route()->getName();
-        $ip = $request->getClientIps();
+        $ip = $request->getClientIp();
 
         Log::info('User action: ', [
             'user_id' => $user_id,

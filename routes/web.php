@@ -3,11 +3,9 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\BrandController;
-use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +47,4 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-    Route::post('/image/upload', [ImageController::class, 'upload'])->name('image.upload');
-
-    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index'])->name('logs');
 });

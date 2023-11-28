@@ -14,7 +14,7 @@
             </li>
         @endif
         <li class="nav-item">
-            <a class="nav-link" id="logs" href="{{ route('logs') }}">{{ __('Logs') }}</a>
+            <a class="nav-link" id="logs" href="{{ route('log-viewer.index') }}">{{ __('Logs') }}</a>
         </li>
     @endauth
 @endsection
