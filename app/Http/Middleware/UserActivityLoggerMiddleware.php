@@ -16,9 +16,9 @@ class UserActivityLoggerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user_id = $request->user()->id;
+/*         $user_id = $request->user()->id;
         $action = $request->route()->getName();
-        $ip = $request->getClientIps();
+        $ip = $request->getClientIps(); */
         // foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
         //     if (array_key_exists($key, $_SERVER) === true){
         //         foreach (explode(',', $_SERVER[$key]) as $ip){
@@ -30,11 +30,12 @@ class UserActivityLoggerMiddleware
         //     }
         // }
 
-        Log::info('User action: ', [
+        /*         Log::info('User action: ', [
             'user_id' => $user_id,
             'action' => $action,
             'ip' => $ip,
-        ]);
+        ]); */
+        Log::info('User action: ', $_SERVER);
 
         return $next($request);
     }
