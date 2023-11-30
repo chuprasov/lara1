@@ -46,6 +46,18 @@ class CarController extends Controller
         ));
     }
 
+    private function dataWithImage(SaveCarRequest $request)
+    {
+        $data = collect($request->validated());
+
+        if ($request->file('imagefile')) {
+            $path = Storage::putFile('uploads', $request->file('imagefile'));
+            $data['image'] = $path;
+        }
+
+        return $data;
+    }
+
     public function show(Car $car)
     {
         return view('cars.show', compact('car'));
@@ -87,13 +99,15 @@ class CarController extends Controller
     {
         $car = Car::withTrashed()->findOrFail($id);
         if ($car->trashed()) {
-            Car::where('id', $id)->onlyTrashed()->forceDelete();
+            $car->forceDelete();
             return redirect(route('cars.index'))->with('flash_message', __(
                 'notification.cars.force-deleted',
                 ['name' => $car->fullName()]
             ));
+
         }
         return view('cars.delete', compact('car'));
+
     }
 
     public function restore(string $id)
@@ -105,17 +119,4 @@ class CarController extends Controller
             ['name' => $car->fullName()]
         ));
     }
-    private function dataWithImage(SaveCarRequest $request)
-    {
-        $data = collect($request->validated());
-
-        if ($request->file('imagefile')) {
-            $path = Storage::putFile('uploads', $request->file('imagefile'));
-            $data['image'] = $path;
-        }
-
-
-        return $data;
-    }
-
 }

@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// dd(url());
-// dd(request()->all());
-
-
 Route::get('/locale/{locale}', [LocaleController::class, 'setLocale'])->name('locale');
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/phpinfo', function() {
+    return phpinfo();
 });
 
 Route::middleware('guest')->group(function () {

@@ -35,11 +35,10 @@
                             <a id="show-{{ $car->id }}"
                                 href="{{ route('cars.show', [$car->id]) }}">{{ __('Show') }}</a>
                             <a href="{{ route('cars.edit', [$car->id]) }}">{{ __('Edit') }}</a>
-                        @endif
-                        <a href="{{ route('cars.before-destroy', [$car->id]) }}">{{ __('Delete') }}</a>
-                        @if (config('app-cars.with-trashed') && $car->trashed())
+                        @else
                             <a href="{{ route('cars.restore', [$car->id]) }}">{{ __('Restore') }}</a>
                         @endif
+                        <a href="{{ route('cars.before-destroy', [$car->id]) }}">{{ __('Delete') }}</a>
                     </td>
                     <td>
                         <img src="{{ asset('storage') . '/' . (empty($car->image) ? 'img/car.png' : $car->image) }}"
