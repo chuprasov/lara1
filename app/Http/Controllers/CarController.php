@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
@@ -53,6 +54,11 @@ class CarController extends Controller
         if ($request->file('imagefile')) {
             $path = Storage::putFile('uploads', $request->file('imagefile'));
             $data['image'] = $path;
+            Log::info("Load car image", [
+                "from"  => $request->file('imagefile')->getClientOriginalName(),
+                "to"    => $path,
+                "type"  => $request->file('imagefile')->getMimeType(),
+            ]);
         }
 
         return $data;
@@ -104,10 +110,8 @@ class CarController extends Controller
                 'notification.cars.force-deleted',
                 ['name' => $car->fullName()]
             ));
-
         }
         return view('cars.delete', compact('car'));
-
     }
 
     public function restore(string $id)
