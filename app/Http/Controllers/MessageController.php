@@ -15,8 +15,6 @@ class MessageController extends Controller
     {
         $msgDate = Carbon::now();
 
-        // dd($msgDate->format('Y-m-d H:i:s'), $msgDateEnd->format('Y-m-d H:i:s'));
-
         if (isset($request->validated()["msg_date"])) {
             $msgDate->modify($request->validated()["msg_date"]);
         };
@@ -25,17 +23,12 @@ class MessageController extends Controller
 
         Log::info("Verbox message requested from $msgDate to $msgDateEnd");
 
-        // dd(session('msg_date'));
-
         Session::put('msg_date', $msgDate);
-        // dd(session('msg_date'));
 
         $msgList = $chatMessage->getList([
             "start" => $msgDate->format("Y-m-d H:i:s"),
             "stop" => $msgDateEnd->format("Y-m-d H:i:s")
         ]);
-
-        // dd($msgList);
 
         return view('messages.index', compact('msgList', 'msgDate'));
     }
