@@ -53,13 +53,13 @@ class CarController extends Controller
 
         if ($request->file('imagefile')) {
             $path = Storage::putFile('uploads', $request->file('imagefile'));
-            $data['image'] = $path;
             Log::info("Load car image", [
                 "from"  => $request->file('imagefile')->getClientOriginalName(),
                 "to"    => $path,
                 "type"  => $request->file('imagefile')->getMimeType(),
             ]);
         }
+        $data['image'] = $path ?? '';
 
         return $data;
     }
