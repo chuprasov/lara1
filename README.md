@@ -7,15 +7,15 @@ Bootstrap 5 layout.
 
 ## Project deployment
 
-git clone https://github.com/chuprasov/lara1.git
-composer install
-npm install
-npm run build
-php artisan migrate
-
-Copy file from .env.example to .env
-
-Set database credential.
+git clone https://github.com/chuprasov/lara1.git <br>
+composer install <br>
+npm install <br>
+npm run build <br>
+php artisan migrate <br>
+<br>
+Copy file from .env.example to .env <br>
+<br>
+Set database credential. <br>
 
 ## Project example
 https://lara1.fcqdaqp.online/
